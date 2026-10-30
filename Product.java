@@ -1,59 +1,43 @@
 package product;
 
-public class Product {
+public abstract class Product {
 	private String name;
 	private String category;
 	private double price;
 	private int number;
 	private double weight;
 
-	//Геттеры
-	public String getName() {
-		return this.name;
-	}
+	public Product() { }
 
-	public String getCategory() {
-		return this.category;
-	}
-
-	public double getPrice() {
-		return this.price;
-	}
-
-	public int getNumber() {
-		return this.number;
-	}
-
-	public double getWeight() {
-		return this.weight;
-	}
-
-	//Сеттеры
-	public void setName(String name) {
+	public Product(String name, String category, double price, int number, double weight) {
 		this.name = name;
-	}
-
-	public void setCategory(String category) {
 		this.category = category;
-	}
-
-	public void setPrice(double price) {
 		this.price = price;
-	}
-
-	public void setNumber(int number) {
 		this.number = number;
-	}
-
-	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 
-	//Всякие методы разные....
+
+	//Геттеры
+	public String getName() { return this.name; }
+	public String getCategory() { return this.category; }
+	public double getPrice() { return this.price; }
+	public int getNumber() { return this.number; }
+	public double getWeight() { return this.weight; }
+
+	//Сеттеры
+	public void setName(String name) { this.name = name; }
+	public void setCategory(String category) { this.category = category; }
+	public void setPrice(double price) { this.price = price; }
+	public void setNumber(int number) { this.number = number; }
+	public void setWeight(double weight) { this.weight = weight; }
+
+
+	public abstract double deliveryCost();
 
 	//Скидка на товар рандомная
 	public double randomDiscount() {
-		double newprice = this.price - (this.price * ((Math.random() * 46) + 5))/100;
+		double newprice = this.price - (this.price * ((Math.random() * 46) + 5)) / 100;
 		return newprice;
 	}
 
