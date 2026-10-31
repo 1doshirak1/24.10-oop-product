@@ -1,5 +1,5 @@
 package product;
-
+//класс абстрактный потому что для разных наследников метод может изменяться и товар это вещь абстрактная
 public abstract class Product {
 	private String name;
 	private String category;
