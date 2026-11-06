@@ -1,4 +1,8 @@
 package product;
+import java.util.Objects;
+
+
+
 //класс абстрактный потому что для разных наследников метод может изменяться и товар это вещь абстрактная
 public abstract class Product {
 	private String name;
@@ -89,4 +93,24 @@ public abstract class Product {
 		System.out.println("price: " + this.price);
 		System.out.println("amount: " + this.number + " (" + availability() + ")");
 	}
+
+	@Override
+	public int hashCode(){
+		return Objects.hash(name, category, price, number, weight);
+	}
+
+
+	@Override
+	public String toString(){
+		return this.name + " " + this.category;
+	}
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || this.getClass() != o.getClass()) return false;
+		Product product = (Product) o;
+		return this.name.equals(product.name)
+				&& this.category.equals(product.category) && Double.compare(this.price, product.getPrice()) == 0 && Double.compare(this.weight, product.getWeight()) == 0 && this.number == product.getNumber();
+	}
+
 }

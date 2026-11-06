@@ -1,5 +1,7 @@
 package product;
 
+import java.util.Objects;
+
 public class Cosmetics extends Product implements Giftable {
     private String skinType;
     private boolean isAggressive;
@@ -56,6 +58,10 @@ public class Cosmetics extends Product implements Giftable {
         return getPrice() - getPrice() * percent / 100;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(this);
+    }
 
 
 
